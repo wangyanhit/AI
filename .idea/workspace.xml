@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca2d247a-9964-4709-8976-b4c9719fbecc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/mc.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/question4.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,7 +18,7 @@
       <file leaf-file-name="search.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12450">
+            <state relative-caret-position="198">
               <caret line="415" column="44" lean-forward="false" selection-start-line="415" selection-start-column="44" selection-end-line="415" selection-end-column="44" />
               <folding>
                 <element signature="e#198#385#0" expanded="true" />
@@ -25,14 +27,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="question4.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/question4.py">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1578">
-              <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#69#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="90">
+              <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,12 +74,13 @@
         <option value="$PROJECT_DIR$/search.py" />
         <option value="$PROJECT_DIR$/question4.py" />
         <option value="$PROJECT_DIR$/question4_tsp.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="727" />
-    <option name="y" value="150" />
+    <option name="x" value="310" />
+    <option name="y" value="172" />
     <option name="width" value="1938" />
     <option name="height" value="1048" />
   </component>
@@ -289,7 +290,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="727" y="150" width="1938" height="1048" extended-state="0" />
+    <frame x="310" y="172" width="1938" height="1048" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26126608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -343,9 +344,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2490">
           <caret line="87" column="42" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="190" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#69#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -373,6 +372,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
           <caret line="59" column="9" lean-forward="false" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -397,6 +397,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
           <caret line="59" column="9" lean-forward="false" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -425,6 +426,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
           <caret line="59" column="9" lean-forward="false" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -435,13 +437,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/search.py">
+    <entry file="file://$PROJECT_DIR$/question4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12450">
-          <caret line="415" column="44" lean-forward="false" selection-start-line="415" selection-start-column="44" selection-end-line="415" selection-end-column="44" />
-          <folding>
-            <element signature="e#198#385#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="132">
+          <caret line="158" column="33" lean-forward="true" selection-start-line="158" selection-start-column="33" selection-end-line="158" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -455,13 +455,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/question4.py">
+    <entry file="file://$PROJECT_DIR$/search.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1578">
-          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="415" column="44" lean-forward="false" selection-start-line="415" selection-start-column="44" selection-end-line="415" selection-end-column="44" />
           <folding>
-            <element signature="e#0#69#0" expanded="true" />
+            <element signature="e#198#385#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
