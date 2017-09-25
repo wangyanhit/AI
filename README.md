@@ -7,3 +7,5 @@ astar_for_missionaries_and_cannibals.py: Using A* to solve missionaries and cann
 astar_and_rbfs_for_tsp.py: Using A* and Recursive Best First search to solve TSP problems;
 
 hill_climbing_for_tsp.py: Using hill-climbing algorithm to solve TSP problems;
+
+genetic_algorithm_for_tsp.py: Using genetic algorithm to solve TSP problem.

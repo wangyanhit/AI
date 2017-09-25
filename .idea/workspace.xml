@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ca2d247a-9964-4709-8976-b4c9719fbecc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/genetic_algorithm_for_tsp.py" afterPath="$PROJECT_DIR$/genetic_algorithm_for_tsp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hill_climbing_for_tsp.py" afterPath="$PROJECT_DIR$/hill_climbing_for_tsp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/search.py" afterPath="$PROJECT_DIR$/search.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,11 +29,21 @@
       <file leaf-file-name="genetic_algorithm_for_tsp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/genetic_algorithm_for_tsp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-53">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="34" selection-end-column="16" />
+            <state relative-caret-position="150">
+              <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
               <folding>
                 <element signature="e#0#53#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -50,14 +58,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hill_climbing_for_tsp.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="hill_climbing_for_tsp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hill_climbing_for_tsp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="7" column="54" lean-forward="true" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -114,17 +120,17 @@
         <option value="$PROJECT_DIR$/mc.py" />
         <option value="$PROJECT_DIR$/question4.py" />
         <option value="$PROJECT_DIR$/question4_tsp.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/astar_and_rbfs_for_tsp.py" />
         <option value="$PROJECT_DIR$/search.py" />
         <option value="$PROJECT_DIR$/genetic_algorithm_for_tsp.py" />
         <option value="$PROJECT_DIR$/hill_climbing_for_tsp.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="695" />
-    <option name="y" value="17" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
     <option name="width" value="1938" />
     <option name="height" value="1048" />
   </component>
@@ -173,7 +179,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.hill_climbing_for_tsp">
+  <component name="RunManager" selected="Python.genetic_algorithm_for_tsp">
     <configuration name="astar_and_rbfs_for_tsp" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -268,8 +274,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.hill_climbing_for_tsp" />
-        <item index="1" class="java.lang.String" itemvalue="Python.genetic_algorithm_for_tsp" />
+        <item index="0" class="java.lang.String" itemvalue="Python.genetic_algorithm_for_tsp" />
+        <item index="1" class="java.lang.String" itemvalue="Python.hill_climbing_for_tsp" />
         <item index="2" class="java.lang.String" itemvalue="Python.astar_and_rbfs_for_tsp" />
         <item index="3" class="java.lang.String" itemvalue="Python.question4" />
         <item index="4" class="java.lang.String" itemvalue="Python.mc" />
@@ -308,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506306930992</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="finish genetic algorithm for TSP problem.">
+      <created>1506372528285</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1506372528286</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -382,7 +395,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="finish A* and RBFS for TSP problem." />
     <MESSAGE value="finish hill-climbing algorithm for TSP problem." />
-    <option name="LAST_COMMIT_MESSAGE" value="finish hill-climbing algorithm for TSP problem." />
+    <MESSAGE value="finish genetic algorithm for TSP problem." />
+    <option name="LAST_COMMIT_MESSAGE" value="finish genetic algorithm for TSP problem." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -412,9 +426,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4590">
           <caret line="153" column="25" lean-forward="true" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -531,13 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/astar_and_rbfs_for_8-puzzle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5220">
@@ -592,23 +597,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hill_climbing_for_tsp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/genetic_algorithm_for_tsp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-53">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="34" selection-end-column="16" />
+        <state relative-caret-position="150">
+          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hill_climbing_for_tsp.py">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="7" column="54" lean-forward="true" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
