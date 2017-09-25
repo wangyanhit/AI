@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca2d247a-9964-4709-8976-b4c9719fbecc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/genetic_algorithm_for_tsp.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hill_climbing_for_tsp.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/astar_and_rbfs_for_tsp.py" afterPath="$PROJECT_DIR$/astar_and_rbfs_for_tsp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/search.py" afterPath="$PROJECT_DIR$/search.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -280,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506294483724</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="finish hill-climbing algorithm for TSP problem.">
+      <created>1506306868103</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1506306868104</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -353,7 +356,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="finish A* and RBFS for TSP problem." />
-    <option name="LAST_COMMIT_MESSAGE" value="finish A* and RBFS for TSP problem." />
+    <MESSAGE value="finish hill-climbing algorithm for TSP problem." />
+    <option name="LAST_COMMIT_MESSAGE" value="finish hill-climbing algorithm for TSP problem." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
