@@ -710,6 +710,9 @@ def genetic_search(problem, fitness_fn, ngen=1000, pmut=0.1, n=20):
 
 def genetic_algorithm(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1000, pmut=0.1):  # noqa
     """[Figure 4.8]"""
+    history = []
+    fittest_individual = population[0]
+    fittest_value = 0
     for i in range(ngen):
         new_population = []
         random_selection = selection_chances(fitness_fn, population)
@@ -723,14 +726,24 @@ def genetic_algorithm(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ng
 
         population = new_population
 
+        current_fittest_individual = argmax(population, key=fitness_fn)
+        value = fitness_fn(current_fittest_individual)
+        if value > fittest_value:
+            fittest_individual = current_fittest_individual
+            fittest_value = value
+
+        if i % 10 == 0:
+            history.append(value)
+            print("Evelution: {}, Best value: {}".format(i, value))
+
         if f_thres:
             fittest_individual = argmax(population, key=fitness_fn)
             if fitness_fn(fittest_individual) >= f_thres:
                 return fittest_individual
 
-    return argmax(population, key=fitness_fn)
+    return fittest_individual, history
 
-
+'''
 def init_population(pop_number, gene_pool, state_length):
     """Initializes population for genetic algorithm
     pop_number  :  Number of individuals in population
@@ -743,6 +756,24 @@ def init_population(pop_number, gene_pool, state_length):
         population.append(new_individual)
 
     return population
+'''
+
+
+def init_population(pop_number, gene_pool, state_length):
+    """Initializes population for genetic algorithm
+    pop_number  :  Number of individuals in population
+    gene_pool   :  List of possible values for individuals
+    state_length:  The length of each individual"""
+    population = []
+    pattern = []
+    for i in range(state_length):
+        pattern.append(i)
+
+    for i in range(pop_number):
+        random.shuffle(pattern)
+        population.append(tuple(pattern))
+
+    return population
 
 
 def selection_chances(fitness_fn, population):
@@ -753,9 +784,20 @@ def selection_chances(fitness_fn, population):
 def reproduce(x, y):
     n = len(x)
     c = random.randrange(1, n)
-    return x[:c] + y[c:]
+    child_left = list(x[:c])
+    child_right = []
+    cnt = 0
+    pos = n - 1
+    while cnt < n - c:
+        if y[pos] not in child_left:
+            cnt += 1
+            child_right.append(y[pos])
+        pos -= 1
+    child_right.reverse()
+    child = child_left + child_right
+    return tuple(child)
 
-
+'''
 def mutate(x, gene_pool):
     n = len(x)
     g = len(gene_pool)
@@ -764,7 +806,19 @@ def mutate(x, gene_pool):
 
     new_gene = gene_pool[r]
     return x[:c] + [new_gene] + x[c+1:]
+'''
 
+
+def mutate(x, gene_pool):
+    n = len(x)
+    c = random.randrange(0, n)
+    r = random.randrange(0, n)
+
+    sample = list(x)
+    tmp = sample[c]
+    sample[c] = sample[r]
+    sample[r] = tmp
+    return tuple(sample)
 # _____________________________________________________________________________
 # The remainder of this file implements examples for the search algorithms.
 

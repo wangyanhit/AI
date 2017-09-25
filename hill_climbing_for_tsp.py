@@ -70,23 +70,22 @@ class TSPHillClimbingProblem(Problem):
     def value(self, state):
         """For optimization problems, each state has a value.  Hill-climbing
         and related algorithms try to maximize this value."""
-        xs = []
-        ys = []
+        length = len(state)
+        xs = np.zeros(length)
+        ys = np.zeros(length)
+        x2s = np.zeros(length)
+        y2s = np.zeros(length)
         for i in state:
-            xs.append(self.cities[state[i]][0])
-            ys.append(self.cities[state[i]][1])
-        xs_np = np.array(xs)
-        ys_np = np.array(ys)
+            xs[i] = self.cities[state[i]][0]
+            ys[i] = self.cities[state[i]][1]
 
-        x2s = xs_np
-        x2s[1:] = xs_np[0:-1]
-        x2s[0] = xs_np[-1]
+        x2s[1:] = xs[:length - 1]
+        x2s[0] = xs[length - 1]
 
-        y2s = ys_np
-        y2s[1:] = ys_np[0:-1]
-        y2s[0] = ys_np[-1]
+        y2s[1:] = ys[:-1]
+        y2s[0] = ys[-1]
 
-        value = 1 / np.sum(np.sqrt((x2s - xs)**2 + (y2s - ys)**2))
+        value = np.exp(-np.log(np.sum(np.sqrt((x2s - xs) ** 2 + (y2s - ys) ** 2)) + 0.00001) * 5 + 35)
 
         if value > self.best_value:
             self.best_value = value
@@ -95,6 +94,7 @@ class TSPHillClimbingProblem(Problem):
             self.no_improve_cnt += 1
         print(self.no_improve_cnt)
         return value
+
 
     def h(self, node):
         # all the cities left
@@ -156,7 +156,7 @@ print(tsp.actions(start))
 # compare the execution time
 start_time = time.time()
 path = hill_climbing(tsp)
-print("Execution time for A*: {}".format(time.time() - start_time))
+print("Execution time for hill-climbing: {}".format(time.time() - start_time))
 
 
 xs = []
