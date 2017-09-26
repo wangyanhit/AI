@@ -4,8 +4,7 @@ import time
 import math
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.sparse import csr_matrix
-from scipy.sparse.csgraph import minimum_spanning_tree
+
 
 
 class TSPHillClimbingProblem(Problem):
@@ -179,7 +178,8 @@ class TSPHillClimbingProblem(Problem):
             print("best state: {}".format(state))
         else:
             self.no_improve_cnt += 1
-        print(self.no_improve_cnt)
+        if self.no_improve_cnt % 100 == 0:
+            print(self.no_improve_cnt)
         return value
 
 

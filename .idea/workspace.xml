@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ca2d247a-9964-4709-8976-b4c9719fbecc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/astar_and_rbfs_for_tsp.py" afterPath="$PROJECT_DIR$/astar_and_rbfs_for_tsp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hill_climbing_for_tsp.py" afterPath="$PROJECT_DIR$/hill_climbing_for_tsp.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,8 +28,8 @@
       <file leaf-file-name="hill_climbing_for_tsp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hill_climbing_for_tsp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="210" column="13" lean-forward="true" selection-start-line="210" selection-start-column="13" selection-end-line="210" selection-end-column="13" />
+            <state relative-caret-position="-94">
+              <caret line="219" column="24" lean-forward="true" selection-start-line="219" selection-start-column="24" selection-end-line="219" selection-end-column="24" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -114,9 +112,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="74" />
-    <option name="y" value="152" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="519" />
+    <option name="y" value="301" />
     <option name="width" value="1938" />
     <option name="height" value="1048" />
   </component>
@@ -321,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506390237408</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add reversing processing to make the local sample more efficient.">
+      <created>1506395573832</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1506395573832</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -366,7 +371,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="519" y="301" width="1938" height="1048" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26502147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -374,7 +379,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3667426" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35990888" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35990888" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -398,7 +403,8 @@
     <MESSAGE value="finish genetic algorithm for TSP problem." />
     <MESSAGE value="Fix readme" />
     <MESSAGE value="Fix some small bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix some small bugs" />
+    <MESSAGE value="Add reversing processing to make the local sample more efficient." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add reversing processing to make the local sample more efficient." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -645,8 +651,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hill_climbing_for_tsp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="210" column="13" lean-forward="true" selection-start-line="210" selection-start-column="13" selection-end-line="210" selection-end-column="13" />
+        <state relative-caret-position="-94">
+          <caret line="219" column="24" lean-forward="true" selection-start-line="219" selection-start-column="24" selection-end-line="219" selection-end-column="24" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
