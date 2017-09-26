@@ -21,6 +21,7 @@ class TSPProblem(Problem):
         self.cities = cities
         self.nodes_cnt = 0
         self.citiy_num = len(cities)
+        self.depth = 0
         Problem.__init__(self, initial, goal)
 
     def actions(self, state):
@@ -144,7 +145,7 @@ def effective_branching_factor(nodes_num, depth):
     return middle
 
 #print(effective_branching_factor(52, 5))
-city_num = 12
+city_num = 10
 start = generate_random_init(city_num)
 print(start)
 

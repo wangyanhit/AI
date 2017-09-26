@@ -34,11 +34,11 @@ def fitness_fn(state):
     value = np.exp(-np.log(np.sum(np.sqrt((x2s - xs)**2 + (y2s - ys)**2)) + 0.00001) * 5 + 35)
     return value
 
-city_num = 40
+city_num = 15
 cities = generate_random_cities(city_num=city_num, length=100)
 population = init_population(pop_number=1000, gene_pool=None, state_length=city_num)
 
-path, history = genetic_algorithm(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1000, pmut=0.1)
+path, history = genetic_algorithm(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=200, pmut=0.1)
 
 print(path)
 

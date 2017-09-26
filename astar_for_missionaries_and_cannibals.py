@@ -13,6 +13,8 @@ class MCProblem(Problem):
         """The constructor specifies the initial state, and possibly a goal
         state, if there is a unique goal.  Your subclass's constructor can add
         other arguments."""
+        self.nodes_cnt = 0
+        self.depth = 0
         self.states = [(3, 3, 0), (3, 0, 0), (2, 3, 0), (2, 2, 0), (2, 0, 0), (1, 3, 0), (1, 1, 0), (1, 0, 0), (0, 3, 0), (0, 0, 0),
                        (3, 3, 1), (3, 0, 1), (2, 3, 1), (2, 2, 1), (2, 0, 1), (1, 3, 1), (1, 1, 1), (1, 0, 1), (0, 3, 1), (0, 0, 1)]
         Problem.__init__(self, initial, goal)
@@ -84,4 +86,4 @@ node = astar_search(mc)
 node_tmp = node
 path = [x.state for x in node.path()]
 for i in range(len(path)):
-    print(path[i])
+    print("step: {}, state {}".format(i, path[i]))
