@@ -24,6 +24,91 @@ class TSPHillClimbingProblem(Problem):
         self.best_value = 0
         Problem.__init__(self, initial, goal)
 
+
+    def actions(self, state):
+        """Return the actions that can be executed in the given
+        state. The result would typically be a list, but if there are
+        many actions, consider yielding them one at a time in an
+        iterator, rather than building them all at once."""
+        actions = []
+        state_list = list(state)
+        pos = random.sample(range(1, self.city_num-1), 2)
+        pos.sort()
+        path1 = state_list[0:pos[0]]
+        path2 = state_list[pos[0]:pos[1]]
+        path3 = state_list[pos[1]:]
+        # normal
+        actions.append(tuple(path1 + path2 + path3))
+        actions.append(tuple(path1 + path3 + path2))
+        actions.append(tuple(path2 + path1 + path3))
+        actions.append(tuple(path2 + path3 + path1))
+        actions.append(tuple(path3 + path1 + path2))
+        actions.append(tuple(path3 + path2 + path1))
+        # 1 reverse
+        path1.reverse()
+        actions.append(tuple(path1 + path2 + path3))
+        actions.append(tuple(path1 + path3 + path2))
+        actions.append(tuple(path2 + path1 + path3))
+        actions.append(tuple(path2 + path3 + path1))
+        actions.append(tuple(path3 + path1 + path2))
+        actions.append(tuple(path3 + path2 + path1))
+        # 2 reverse
+        path1.reverse()
+        path2.reverse()
+        actions.append(tuple(path1 + path2 + path3))
+        actions.append(tuple(path1 + path3 + path2))
+        actions.append(tuple(path2 + path1 + path3))
+        actions.append(tuple(path2 + path3 + path1))
+        actions.append(tuple(path3 + path1 + path2))
+        actions.append(tuple(path3 + path2 + path1))
+        # 3 reverse
+        path2.reverse()
+        path3.reverse()
+        actions.append(tuple(path1 + path2 + path3))
+        actions.append(tuple(path1 + path3 + path2))
+        actions.append(tuple(path2 + path1 + path3))
+        actions.append(tuple(path2 + path3 + path1))
+        actions.append(tuple(path3 + path1 + path2))
+        actions.append(tuple(path3 + path2 + path1))
+        # 1 2 3 reverse
+        path1.reverse()
+        path2.reverse()
+        actions.append(tuple(path1 + path2 + path3))
+        actions.append(tuple(path1 + path3 + path2))
+        actions.append(tuple(path2 + path1 + path3))
+        actions.append(tuple(path2 + path3 + path1))
+        actions.append(tuple(path3 + path1 + path2))
+        actions.append(tuple(path3 + path2 + path1))
+        # 1 2 reverse
+        path3.reverse()
+        actions.append(tuple(path1 + path2 + path3))
+        actions.append(tuple(path1 + path3 + path2))
+        actions.append(tuple(path2 + path1 + path3))
+        actions.append(tuple(path2 + path3 + path1))
+        actions.append(tuple(path3 + path1 + path2))
+        actions.append(tuple(path3 + path2 + path1))
+        # 1 3 reverse
+        path2.reverse()
+        path3.reverse()
+        actions.append(tuple(path1 + path2 + path3))
+        actions.append(tuple(path1 + path3 + path2))
+        actions.append(tuple(path2 + path1 + path3))
+        actions.append(tuple(path2 + path3 + path1))
+        actions.append(tuple(path3 + path1 + path2))
+        actions.append(tuple(path3 + path2 + path1))
+        # 2 3 reverse
+        path1.reverse()
+        path3.reverse()
+        actions.append(tuple(path1 + path2 + path3))
+        actions.append(tuple(path1 + path3 + path2))
+        actions.append(tuple(path2 + path1 + path3))
+        actions.append(tuple(path2 + path3 + path1))
+        actions.append(tuple(path3 + path1 + path2))
+        actions.append(tuple(path3 + path2 + path1))
+
+        return actions
+
+    '''
     def actions(self, state):
         """Return the actions that can be executed in the given
         state. The result would typically be a list, but if there are
@@ -45,6 +130,7 @@ class TSPHillClimbingProblem(Problem):
         actions.append(tuple(path3 + path2 + path1))
 
         return actions
+    '''
 
     def result(self, state, action):
         """Return the state that results from executing the given
@@ -57,7 +143,7 @@ class TSPHillClimbingProblem(Problem):
         state to self.goal or checks for state in self.goal if it is a
         list, as specified in the constructor. Override this method if
         checking against a single self.goal is not enough."""
-        return self.no_improve_cnt > 50000
+        return self.no_improve_cnt > 20000
 
     def path_cost(self, c, state1, action, state2):
         """Return the cost of a solution path that arrives at state2 from
@@ -90,35 +176,11 @@ class TSPHillClimbingProblem(Problem):
         if value > self.best_value:
             self.best_value = value
             self.no_improve_cnt = 0
+            print("best state: {}".format(state))
         else:
             self.no_improve_cnt += 1
         print(self.no_improve_cnt)
         return value
-
-
-    def h(self, node):
-        # all the cities left
-        cities = []
-        for i in range(len(self.cities)):
-            if i in list(node.state):
-                continue
-            cities.append(i)
-        cities.append(self.initial[0])
-
-        #print(cities)
-        # minimum spanning tree
-        num = len(cities)
-        dis_mat = np.zeros((len(self.cities), len(self.cities)))
-        for i in range(num):
-            for j in range(num):
-                if i != j:
-                    dis_mat[i, j] = np.sqrt((self.cities[cities[i]][0] - self.cities[cities[j]][0])**2 + (self.cities[cities[i]][1] - self.cities[cities[j]][1])**2)
-
-        X = csr_matrix(dis_mat)
-        Tcsr = minimum_spanning_tree(X)
-        #print(Tcsr.toarray())
-
-        return np.sum(np.sum(Tcsr))
 
 
 def generate_random_cities(city_num=5, length=100):
@@ -146,16 +208,18 @@ def generate_random_init(city_number=5):
 def value_function(b, n, d):
     return math.pow(b, d + 1) - (n + 1) * b + n
 
-city_num = 8
+city_num = 20
 start = generate_random_init(city_num)
 print(start)
 
 tsp = TSPHillClimbingProblem(start, cities=generate_random_cities(city_num, 100))
-print(tsp.actions(start))
+#print(tsp.actions(start))
+
 
 # compare the execution time
 start_time = time.time()
 path = hill_climbing(tsp)
+print(path)
 print("Execution time for hill-climbing: {}".format(time.time() - start_time))
 
 

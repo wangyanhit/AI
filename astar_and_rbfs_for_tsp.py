@@ -145,7 +145,7 @@ def effective_branching_factor(nodes_num, depth):
     return middle
 
 #print(effective_branching_factor(52, 5))
-city_num = 10
+city_num = 8
 start = generate_random_init(city_num)
 print(start)
 
