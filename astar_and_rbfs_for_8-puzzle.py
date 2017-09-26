@@ -4,6 +4,7 @@ import random
 import time
 import math
 
+
 def check_goal(initial_state, goal_state):
     init_cnt = 0
     goal_cnt = 0
@@ -20,6 +21,7 @@ def check_goal(initial_state, goal_state):
         print("Goal state is not reachable!")
         return False
 
+
 class EightPuzzleProblem(Problem):
 
     """The abstract class for a formal problem.  You should subclass
@@ -32,7 +34,8 @@ class EightPuzzleProblem(Problem):
         other arguments."""
         self.random_h = random_h
         self.nodes_cnt = 0
-        self.reachable = check_goal(initial, goal)
+        self.depth = 0
+
         Problem.__init__(self, initial, goal)
 
     def actions(self, state):
@@ -146,36 +149,42 @@ def effective_branching_factor(nodes_num, depth):
 
 start = generate_random_init()
 goal = (255, 1, 2, 3, 4, 5, 6, 7, 8)
+# before searching, first check if the goal is reachable
+reachable = 0
+while not reachable:
+    initial = generate_random_init()
+    reachable = check_goal(initial, goal)
+
 eight_puzzle = EightPuzzleProblem(start, goal, random_h=False)
 
-if eight_puzzle.reachable:
-    # compare the execution time
-    start_time = time.time()
-    node_astar = astar_search(eight_puzzle)
-    depth = len(node_astar.path())
-    print("Execution time for A*: {}".format(time.time() - start_time))
-    print("Node number: {}".format(eight_puzzle.nodes_cnt))
-    print("Depth: {}".format(depth))
-    print("Effective branching factor: {}".format(effective_branching_factor(eight_puzzle.nodes_cnt, depth)))
 
-    eight_puzzle.nodes_cnt = 0
-    start_time = time.time()
-    node_rbfs = recursive_best_first_search(eight_puzzle)
-    depth = len(node_rbfs.path())
-    print("Execution time for RBFS: {}".format(time.time() - start_time))
-    print("Node number: {}".format(eight_puzzle.nodes_cnt))
-    print("Depth: {}".format(depth))
-    print("Effective branching factor: {}".format(effective_branching_factor(eight_puzzle.nodes_cnt, depth)))
+# compare the execution time
+start_time = time.time()
+node_astar = astar_search(eight_puzzle)
+depth = len(node_astar.path())
+print("Execution time for A*: {}".format(time.time() - start_time))
+print("Node number: {}".format(eight_puzzle.nodes_cnt))
+print("Depth: {}".format(depth))
+print("Effective branching factor: {}".format(effective_branching_factor(eight_puzzle.nodes_cnt, depth)))
 
-    eight_puzzle = EightPuzzleProblem(start, goal, random_h=True)
-    eight_puzzle.nodes_cnt = 0
-    start_time = time.time()
-    node_rbfs = recursive_best_first_search(eight_puzzle)
-    depth = len(node_rbfs.path())
-    print("Execution time for RBFS with random number: {}".format(time.time() - start_time))
-    print("Node number: {}".format(eight_puzzle.nodes_cnt))
-    print("Depth: {}".format(depth))
-    print("Effective branching factor: {}".format(effective_branching_factor(eight_puzzle.nodes_cnt, depth)))
+eight_puzzle.nodes_cnt = 0
+start_time = time.time()
+node_rbfs = recursive_best_first_search(eight_puzzle)
+depth = len(node_rbfs.path())
+print("Execution time for RBFS: {}".format(time.time() - start_time))
+print("Node number: {}".format(eight_puzzle.nodes_cnt))
+print("Depth: {}".format(depth))
+print("Effective branching factor: {}".format(effective_branching_factor(eight_puzzle.nodes_cnt, depth)))
+
+eight_puzzle = EightPuzzleProblem(start, goal, random_h=True)
+eight_puzzle.nodes_cnt = 0
+start_time = time.time()
+node_rbfs = recursive_best_first_search(eight_puzzle)
+depth = len(node_rbfs.path())
+print("Execution time for RBFS with random number: {}".format(time.time() - start_time))
+print("Node number: {}".format(eight_puzzle.nodes_cnt))
+print("Depth: {}".format(depth))
+print("Effective branching factor: {}".format(effective_branching_factor(eight_puzzle.nodes_cnt, depth)))
 
 '''
     node_tmp = node_astar

@@ -259,6 +259,9 @@ def best_first_graph_search(problem, f):
     explored = set()
     while frontier:
         node = frontier.pop()
+        if node.depth > problem.depth:
+            problem.depth = node.depth
+            print("depth: {}".format(problem.depth))
         if problem.goal_test(node.state):
             return node
         explored.add(node.state)
