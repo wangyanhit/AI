@@ -215,6 +215,70 @@ def tt_check_all(kb, alpha, symbols, model):
                 tt_check_all(kb, alpha, rest, extend(model, P, False)))
 
 
+def tt_entails_a(kb, alpha):
+    """Does kb entail the sentence alpha? Use truth tables. For propositional
+    kb's and sentences. [Figure 7.10]. Note that the 'kb' should be an
+    Expr which is a conjunction of clauses.
+    >>> tt_entails(expr('P & Q'), expr('Q'))
+    True
+    """
+    global rec_depth_a
+
+    assert not variables(alpha)
+    symbols = list(prop_symbols(kb & alpha))
+    rec_depth_a = 0
+    result = tt_check_all_a(kb, alpha, symbols, {})
+    print("pl_true_a has been called for {} times".format(rec_depth_a))
+    return result
+
+
+def tt_check_all_a(kb, alpha, symbols, model):
+    """Auxiliary routine to implement tt_entails."""
+    if not symbols:
+        if pl_true_a(kb, model):
+            result = pl_true_a(alpha, model)
+            assert result in (True, False)
+            return result
+        else:
+            return True
+    else:
+        P, rest = symbols[0], symbols[1:]
+        return (tt_check_all_a(kb, alpha, rest, extend(model, P, True)) and
+                tt_check_all_a(kb, alpha, rest, extend(model, P, False)))
+
+
+def tt_entails_d(kb, alpha):
+    """Does kb entail the sentence alpha? Use truth tables. For propositional
+    kb's and sentences. [Figure 7.10]. Note that the 'kb' should be an
+    Expr which is a conjunction of clauses.
+    >>> tt_entails(expr('P & Q'), expr('Q'))
+    True
+    """
+    global rec_depth_d
+
+    assert not variables(alpha)
+    symbols = list(prop_symbols(kb & alpha))
+    rec_depth_d = 0
+    result = tt_check_all_d(kb, alpha, symbols, {})
+    print("pl_true_d has been called for {} times".format(rec_depth_d))
+    return result
+
+
+def tt_check_all_d(kb, alpha, symbols, model):
+    """Auxiliary routine to implement tt_entails."""
+    if not symbols:
+        if pl_true_d(kb, model):
+            result = pl_true_d(alpha, model)
+            assert result in (True, False)
+            return result
+        else:
+            return True
+    else:
+        P, rest = symbols[0], symbols[1:]
+        return (tt_check_all_d(kb, alpha, rest, extend(model, P, True)) and
+                tt_check_all_d(kb, alpha, rest, extend(model, P, False)))
+
+
 def prop_symbols(x):
     """Return the set of all propositional symbols in x."""
     if not isinstance(x, Expr):
@@ -252,6 +316,139 @@ def tt_true(s):
     """
     s = expr(s)
     return tt_entails(True, s)
+
+rec_depth_a = 0
+
+
+def pl_true_a_depth(exp, model={}):
+    global rec_depth_a
+
+    rec_depth_a = 0
+    result = pl_true_a(exp, model)
+    print("pl_true_a() has been called for {} times".format(rec_depth_a))
+    return result
+
+
+def pl_true_a(exp, model={}):
+    """Return True if the propositional logic expression is true in the model,
+    and False if it is false. If the model does not specify the value for
+    every proposition, this may return None to indicate 'not obvious';
+    this may happen even when the expression is tautological."""
+    global rec_depth_a
+
+    rec_depth_a += 1
+    if exp in (True, False):
+        return exp
+    op, args = exp.op, exp.args
+    if is_prop_symbol(op):
+        return model.get(exp)
+    elif op == '~':
+        p = pl_true_a(args[0], model)
+        if p is None:
+            return None
+        else:
+            return not p
+    elif op == '|':
+        result = False
+        for arg in args:
+            p = pl_true_a(arg, model)
+            if p is True:
+                result = True
+            if p is None:
+                result = None
+        return result
+    elif op == '&':
+        result = True
+        for arg in args:
+            p = pl_true_a(arg, model)
+            if p is False:
+                result = False
+            if p is None:
+                return None
+        return result
+    p, q = args
+    if op == '==>':
+        return pl_true_a(~p | q, model)
+    elif op == '<==':
+        return pl_true_a(p | ~q, model)
+    pt = pl_true_a(p, model)
+    if pt is None:
+        return None
+    qt = pl_true_a(q, model)
+    if qt is None:
+        return None
+    if op == '<=>':
+        return pt == qt
+    elif op == '^':  # xor or 'not equivalent'
+        return pt != qt
+    else:
+        raise ValueError("illegal operator in logic expression" + str(exp))
+
+
+def pl_true_d_depth(exp, model={}):
+    global rec_depth_d
+
+    rec_depth_d = 0
+    result = pl_true_d(exp, model)
+    print("pl_true_d() has been called for {} times".format(rec_depth_d))
+    return result
+
+rec_depth_d = 0
+
+def pl_true_d(exp, model={}):
+    """Return True if the propositional logic expression is true in the model,
+    and False if it is false. If the model does not specify the value for
+    every proposition, this may return None to indicate 'not obvious';
+    this may happen even when the expression is tautological."""
+    global rec_depth_d
+
+    rec_depth_d += 1
+    if exp in (True, False):
+        return exp
+    op, args = exp.op, exp.args
+    if is_prop_symbol(op):
+        return model.get(exp)
+    elif op == '~':
+        p = pl_true_d(args[0], model)
+        if p is None:
+            return None
+        else:
+            return not p
+    elif op == '|':
+        result = False
+        for arg in args:
+            p = pl_true_d(arg, model)
+            if p is True:
+                return True
+            if p is None:
+                result = None
+        return result
+    elif op == '&':
+        result = True
+        for arg in args:
+            p = pl_true_d(arg, model)
+            if p is False:
+                return False
+            if p is None:
+                result = None
+        return result
+    p, q = args
+    if op == '==>':
+        return pl_true_d(~p | q, model)
+    elif op == '<==':
+        return pl_true_d(p | ~q, model)
+    pt = pl_true_d(p, model)
+    if pt is None:
+        return None
+    qt = pl_true_d(q, model)
+    if qt is None:
+        return None
+    if op == '<=>':
+        return pt == qt
+    elif op == '^':  # xor or 'not equivalent'
+        return pt != qt
+    else:
+        raise ValueError("illegal operator in logic expression" + str(exp))
 
 
 def pl_true(exp, model={}):
@@ -305,7 +502,6 @@ def pl_true(exp, model={}):
         return pt != qt
     else:
         raise ValueError("illegal operator in logic expression" + str(exp))
-
 # ______________________________________________________________________________
 
 # Convert to Conjunctive Normal Form (CNF)
