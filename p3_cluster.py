@@ -1,14 +1,8 @@
-from time import time
 import numpy as np
-from scipy import ndimage
-from matplotlib import pyplot as plt
-import matplotlib.patches as mpatches
-
-from sklearn import manifold, datasets
+from sklearn import datasets
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.cluster import AffinityPropagation
 from sklearn.metrics import confusion_matrix
-# from sklearn.metrics.cluster import fowlkes_mallows_score
 from sklearn.metrics.cluster.supervised import check_clusterings, contingency_matrix
 from k_means import KMeans
 
@@ -16,9 +10,6 @@ digits = datasets.load_digits(n_class=10)
 X = digits.data
 y = digits.target
 n_samples, n_features = X.shape
-# print(X.shape) (1797, 64)
-# print(y.shape) #(1797, )
-np.random.seed(0)
 
 # Redefine cluster
 def def_cluster(y, labels):
@@ -40,11 +31,9 @@ def fowlkes_mallows_score(labels_true, labels_pred, sparse=False):
     return tk / np.sqrt(np.float32(pk) * qk) if tk != 0. else 0.
 
 # K-means
-
 print("K-means:")
 clustering = KMeans(n_clusters=10, max_iter=500)
 clustering.fit(X)
-print(clustering.labels_[:40])
 labels = def_cluster(y, clustering.labels_)
 # onfusion matrix
 cfs_mat = confusion_matrix(y, labels)
@@ -78,7 +67,6 @@ labels = def_cluster(y, clustering.labels_)
 cfs_mat = confusion_matrix(y, labels)
 print("confusion matrix:")
 print(cfs_mat)
-print(cfs_mat.shape)
 # Fowlkes–Mallows index
 fm_index = fowlkes_mallows_score(y, labels)
 print("Fowlkes–Mallows index:")
