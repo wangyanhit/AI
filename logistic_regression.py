@@ -19,11 +19,12 @@ class LogisticRegression():
         for i in range(self.max_iter):
             z = self.X.dot(self.w)
             sig = self.sigmoid(z)
-            d_j_sig = sig - self.y
             d_sig_z = sig * (1 - sig)
+            d_j_sig = -self.y / (sig + 0.0001) + (1 - self.y) / (1 - sig + 0.0001)
             d_z_w = self.X
             gradient = np.sum(d_j_sig * d_sig_z * d_z_w, axis=0) / self.m
             gradient = gradient.reshape((self.n, 1))
+            gradient += self.lamb / self.m * self.w
             self.w -= self.learning_rate * gradient
 
     def predict(self, X):
