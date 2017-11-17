@@ -131,7 +131,7 @@ def normalize_data(X):
 def get_data():
     X_raw, y_raw, category = get_raw_data(data, numerical_features)
     X = complete_missing_data(X_raw, category, numerical_features)
-    #X = normalize_data(X)
+    X = normalize_data(X)
 
     y = np.array(y_raw) == 'notckd'
     y = y.astype(np.float32)
